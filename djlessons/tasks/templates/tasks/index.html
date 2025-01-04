@@ -1,19 +1,13 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks</title>
-    <link rel="stylesheet" href="{% static 'tasks/styles.css' %}">
-</head>
-<body>
-    <h1>This is an example of a tasks list </h1>
-    <ul>
-        {% for task in tasks %}
-            <li>{{ task }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "tasks/layout.html" %}
+ 
+{% block body %}
+    <body>
+        <h1>This is an example of a tasks list </h1>
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'tasks:add' %}">Add a new task</a>
+    </body>
+{% endblock %}
