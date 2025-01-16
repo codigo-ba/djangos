@@ -26,12 +26,13 @@ SECRET_KEY = "django-insecure-zy+fxupo=!u)&+32d=jmk&geil7@amm6#(y0s6i6u%2-kg)3_3
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CSRF_TRUSTED_ORIGINS = ['https://localhost:8000']
 
 # Application definition
 
 INSTALLED_APPS = [
     "flights",
+    "users",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
