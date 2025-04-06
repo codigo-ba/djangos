@@ -10,16 +10,18 @@
         <ul>
             <li><a href="/">Home</a></li>
             
-            {% if user.is_authenticated %}
-            <li><a href="/reservation">Reserve</a></li>
-            <li><a href="/logout">Log out</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'reservation' %}">Reserve</a></li>
+            <li><a href="{% url 'signout' %}">Log out</a></li>
             {% else %}
-            <li><a href="/signup">Sign UP</a></li>
-            <li><a href="/signin">Sign IN</a></li>
+            <li><a href="{% url 'signup' %}">Sign UP</a></li>
+            <li><a href="{% url 'signin' %}">Sign IN</a></li>
             {% endif %} 
         </ul>
     </nav>
-    {% block content %}
-    {% endblock %}
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

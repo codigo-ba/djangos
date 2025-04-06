@@ -2,9 +2,13 @@
 
 {% block content %}
 
-<h1>Welcome!</h1>
-<p>If you're here, you probably want to see what I have for you!<br>Do the honors, and log IN or UP!</p>
-<a href="signin">I'm a user</a>
-<a href="signup">I'm new</a>
+    <h1>Welcome!</h1>
+    <p>If you're here, you probably want to see what I have for you!<br>
+        Do the honors, and log IN or UP!
+    </p>
+    <div>
+        <a href="{% url 'signin' %}">I'm a user</a>
+        <a href="{% url 'signup' %}">I'm new</a>
+    </div>
 
 {% endblock %}
