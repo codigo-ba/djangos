@@ -33,10 +33,10 @@ def signin(request):
             login(request, user)
             return redirect('reservation')
         else:
-            return render('signin', {'form': form})
+            return render('signin.html', {'form': form})
     else:
         form = AuthenticationForm()
-        return render('signin', {'form': form})
+        return render(request, 'signin.html', {'form': form})
 
 
 def signout(request):
