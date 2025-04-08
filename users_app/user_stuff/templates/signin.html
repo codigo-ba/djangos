@@ -13,7 +13,7 @@
         </div>
     {% endif %}
 
-    <form action="/signin/" method="post">
+    <form action="{% url 'signin' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Sign IN</button>

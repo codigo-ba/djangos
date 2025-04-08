@@ -1,14 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-
-    <h1>Welcome!</h1>
-    <p>If you're here, you probably want to see what I have for you!<br>
+<div class="container text-center mt-5">
+    <h1 class="mb-4">Welcome!</h1>
+    <p class="mb-4">
+        If you're here, you probably want to see what I have for you!<br>
         Do the honors, and log IN or UP!
     </p>
     <div>
-        <a href="{% url 'signin' %}" class="button-link">I'm a user</a>
+        <a href="{% url 'signin' %}" class="button-link me-2">I'm a user</a>
         <a href="{% url 'signup' %}" class="button-link secondary-button">I'm new</a>
     </div>
-
+</div>
 {% endblock %}
