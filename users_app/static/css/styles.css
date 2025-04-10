@@ -1,5 +1,5 @@
 body {
-    background-image: url('/workspaces/djangos/users_app/static/images/pexels-clickerhappy-688332.jpg');
+    background-image: url('https://fictional-sniffle-jjj7q5qwq9553jpgg.github.dev/workspaces/djangos/users_app/static/images/backphoto.jpg');
     background-size: cover;
     background-position: center;
     font-family: lato;
