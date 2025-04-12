@@ -1,109 +1,161 @@
-body {
-    background-image: url('/users_app/static/images/backphoto.jpg');
-    background-size: cover;
-    background-position: center;
-    font-family: lato;
+/* Configuración básica de la página */
+html, body {
+    height: 100%; /* Asegura que html y body ocupen toda la altura de la ventana */
     margin: 0;
     padding: 0;
-    
-} 
+    overflow: hidden; /* Evita barras de desplazamiento opcionales */
+    font-family: 'Lato', sans-serif;
+    position: relative;
+}
+
+body::before {
+    content: ""; /* Necesario para que el pseudo-elemento aparezca */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/backphoto3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+    z-index: -1; /* Para que el fondo quede detrás del contenido */
+}
+
+/* Estilos de navegación */
 nav {
     background-color: #333;
     overflow: hidden;
+    position: relative; /* Para estar por encima del pseudo-elemento */
+    z-index: 1; /* Prioridad sobre el fondo */
 }
+
 nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
 }
+
 nav ul li {
     flex: 1;
 }
+
 nav ul li a {
     color: white;
     text-align: center;
     padding: 14px;
-    display: block;
     text-decoration: none;
-    transition: background-color 0.3s ease; /* Transición suave */
-    
+    display: block;
     margin: 0 15px; /* Espacio entre los enlaces */
+    transition: background-color 0.3s ease; /* Transición suave */
 }
+
 nav ul li a:hover {
     background-color: #575757;
     border-radius: 20px; /* Bordes redondeados */
 }
+
+/* Contenido general */
 .content {
     padding: 20px;
     text-align: center;
 }
-.button-link {
-    margin-right: 10px;             
-    background-color: #4CAF50;      
-    color: white;                   
-    padding: 10px 20px;             
-    text-decoration: none;          
-    border-radius: 5px;        
+
+/* Estilo general para botones */
+.button-link, 
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animación */
     display: inline-block;
-    transition: background-color 0.3s ease; /* Transición suave */
 }
-.button-link:hover {
-    background-color: #45a049;
+
+.button-link:hover, 
+form button:hover {
+    background-color: #45a049; /* Cambio de color al hacer hover */
+    transform: scale(1.05); /* Agrandamiento sutil */
 }
+
+/* Botón secundario */
 .secondary-button {
     background-color: #008CBA;
 }
+
 .secondary-button:hover {
     background-color: #007ba7;
 }
 
+/* Reglas de estilo para el contenedor principal */
+.home-container {
+    display: flex; /* Activa flexbox */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    justify-content: flex-start; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    min-height: 100vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+    padding-top: 10dvh; /* Añade un espacio superior para colocarlo más arriba */
+    text-align: center; /* Asegura que el texto esté centrado */
+    box-sizing: border-box; /* Incluye padding y border en las dimensiones */
+}
+/* Estilo para titulo animado*/
+.supertext h1{
+    font-size: 7.5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.1); /* Color blanco con opacidad */
+    background-image: url('../images/backphoto.jpg');
+    background-repeat: repeat-x; /* Repite la imagen horizontalmente */
+    background-clip: text; /* Aplica la imagen al texto */
+    -webkit-background-clip: text; /* Para compatibilidad con WebKit */
+    animation: text-animation 15s linear infinite; /* Animación */
+}
+@keyframes text-animation {
+    0% {
+        background-position: 0 0; /* Comienza en la posición inicial */
+    }
+    100% {
+        background-position: 100% 0; /* Termina en la posición final */
+    }
+}
+
+
+/* Estilo general para formularios */
 form {
-    margin-top: 20px;
-    text-align: left;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%; /* Asegura que el formulario abarque todo el contenedor */
+    margin: 0 auto; /* Centrado horizontal */
+    box-sizing: border-box; /* Incluye el padding en el ancho */
+
 }
 
-form button {
-    background-color: #008CBA;
-    color: white;
-    padding: 10px 20px;
-    border: none;    .button-link {
-        margin-right: 10px;             
-        background-color: #4CAF50;      /* Color principal */
-        color: white;                   
-        padding: 10px 20px;             
-        text-decoration: none;          
-        border-radius: 5px;        
-        display: inline-block;
-        transition: background-color 0.3s ease; /* Transición suave */
-    }
-    
-    .button-link:hover {
-        background-color: #45a049;      /* Color al hacer hover */
-    }
-    
-    .secondary-button {
-        background-color: #008CBA;      /* Color secundario */
-    }
-    
-    .secondary-button:hover {
-        background-color: #007ba7;      /* Color al hacer hover */
-    }
+/* Campos del formulario */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
     border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin-top: 10px;
-    width: 40%;
-    margin: 10px auto; 
+    background: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Animación */
 }
 
-form button:hover {
-    background-color: #007ba7;
+.input-field:hover {
+    transform: translateY(-3px); /* Movimiento sutil hacia arriba */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo más opaco al hacer hover */
 }
 
+.input-field::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Placeholder con opacidad */
+}
+
+/* Alertas de error */
 .alert {
     color: #721c24;
     background-color: #f8d7da;
@@ -112,4 +164,16 @@ form button:hover {
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
-    }
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background: rgba(255, 255, 255, 0.2); /* Transparente */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%; /*Hacer q ocupe el ancho completo*/
+    max-width: 400px; /* Establece un máximo ancho */
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    box-sizing: border-box; /* Incluye el padding en el ancho */
+}
