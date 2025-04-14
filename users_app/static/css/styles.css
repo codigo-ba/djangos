@@ -4,7 +4,8 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden; /* Evita barras de desplazamiento opcionales */
-    font-family: 'Lato', sans-serif;
+    font-family: "Bahnschrift", "Segoe UI", sans-serif;
+    color: rgb(227, 228, 225);
     position: relative;
 }
 
@@ -25,10 +26,12 @@ body::before {
 
 /* Estilos de navegación */
 nav {
-    background-color: #333;
+    background: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    border-color: #575757;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil debajo */
     overflow: hidden;
     position: relative; /* Para estar por encima del pseudo-elemento */
-    z-index: 1; /* Prioridad sobre el fondo */
+    z-index: 10; /* Prioridad sobre el fondo */
 }
 
 nav ul {
@@ -43,16 +46,19 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    font-family: "Bahnschrift", "Segoe UI", sans-serif;
+    font-weight: 300;
+    color: rgb(11, 11, 11);
     text-align: center;
     padding: 14px;
     text-decoration: none;
     display: block;
     margin: 0 15px; /* Espacio entre los enlaces */
-    transition: background-color 0.3s ease; /* Transición suave */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave */
 }
 
 nav ul li a:hover {
+    color: white !important;
     background-color: #575757;
     border-radius: 20px; /* Bordes redondeados */
 }
@@ -106,7 +112,8 @@ form button:hover {
 }
 /* Estilo para titulo animado*/
 .supertext h1{
-    font-size: 7.5rem;
+    font-family: sans-serif;
+    font-size: 6.5rem;
     font-weight: 900;
     color: rgba(255, 255, 255, 0.1); /* Color blanco con opacidad */
     background-image: url('../images/backphoto.jpg');
@@ -168,6 +175,7 @@ form {
 
 /* Contenedor del formulario */
 .form-container {
+    position: relative; /* Asegura que los elementos internos, como el círculo, se posicionen respecto a este contenedor */
     background: rgba(255, 255, 255, 0.2); /* Transparente */
     padding: 20px;
     border-radius: 10px;
@@ -177,3 +185,65 @@ form {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
     box-sizing: border-box; /* Incluye el padding en el ancho */
 }
+
+.circle-container {
+    position: absolute; /* Posiciona el círculo de manera relativa al contenedor padre */
+    top: -50px; /* Mueve el círculo hacia arriba */
+    left: 50%; /* Centra el círculo horizontalmente */
+    transform: translateX(-50%); /* Asegura el centrado exacto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-image {
+    width: 100px; /* Ancho del círculo */
+    height: 100px; /* Alto del círculo (igual al ancho para mantener proporción) */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    border: 5px solid rgba(255, 255, 255, 0.2); /* Borde igual al estilo del formulario */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo en caso de imágenes transparentes */
+    object-fit: cover; /* Asegura que la imagen se ajuste al círculo sin deformarse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .home-container {
+        padding-top: 5vh; /* Reduce el espaciado superior */
+        min-height: auto; /* Permite que la altura sea dinámica */
+    }
+
+    .supertext h1 {
+        font-size: 4rem; /* Reduce el tamaño del texto */
+    }
+
+    .button-link {
+        width: 100%; /* Los botones ocuparán todo el ancho */
+        margin-bottom: 10px; /* Añade espacio entre los botones */
+    }
+
+    .secondary-button {
+        margin-bottom: 0; /* Asegura que el último botón no tenga espacio extra */
+    }
+}
+
+@media (max-width: 768px) {
+    .circle-image {
+        width: 80px; /* Reduce el tamaño del círculo */
+        height: 80px;
+    }
+
+    .circle-container {
+        top: -40px; /* Ajusta la posición del círculo para pantallas pequeñas */
+    }
+}
+@media (max-width: 768px) {
+    nav {
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15); /* Sombra más sutil en móviles */
+    }
+}
+
+
+
+

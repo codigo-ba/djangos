@@ -1,4 +1,6 @@
 {% extends 'layout.html' %}
+{% load static %}
+
 {% block content %}
 
 <h1>Sign In</h1>
@@ -16,6 +18,10 @@
 
 <!-- Contenedor personalizado para el formulario -->
 <div class="form-container">
+    <!-- Nuevo contenedor para el círculo -->
+    <div class="circle-container">
+        <img src="{% static 'images/form_photo.jpg' %}" alt="User Photo" class="circle-image">
+    </div>
     <form method="post" action="{% url 'signin' %}">
         {% csrf_token %}
         {{ form.username }}

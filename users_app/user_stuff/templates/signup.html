@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
-{% block content %}
+{% load static %}
 
+{% block content %}
 <h1>Sign Up</h1>
 
 <!-- Muestra errores si los hay -->
@@ -21,6 +22,10 @@
 
 <!-- Contenedor personalizado para el formulario -->
 <div class="form-container">
+    <!-- Nuevo contenedor para el círculo -->
+    <div class="circle-container">
+        <img src="{% static 'images/form_photo.jpg' %}" alt="User Photo" class="circle-image">
+    </div>
     <form method="post" action="{% url 'signup' %}">
         {% csrf_token %}
         <!-- Renderiza los campos usando el nuevo formulario personalizado -->
@@ -31,5 +36,4 @@
         <button type="submit" class="button-link">Create Account</button>
     </form>
 </div>
-
 {% endblock %}
